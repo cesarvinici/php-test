@@ -1,0 +1,19 @@
+<h1 class="text-center">Create Retailer</h1>
+
+<div class="row ">
+  
+      <form class="form form-group"  method="POST"  enctype="multipart/form-data">
+        <div class="col-6">
+          <label for="Name" class="font-weight-bold">Name</label>
+          <input type="text" id="Name" class="form-control" name="Name">
+          <label for="WebSite" class="font-weight-bold">WebSite</label>
+          <input type="url" id="WebSite" class="form-control" name="WebSite">
+          <label for="Description" class="font-weight-bold">Description</label>
+          <textarea name="Description" class="form-control" id="Description" cols="100" rows="5"></textarea>
+          <label for="Logo" class="font-weight-bold">Logo</label>
+          <input type="file" id="Logo" class="form-control" name="Logo">
+        </div>
+        <button class="btn btn-success mt-3 btn-md" (click)="saveRetailer()">SAVE</button>
+        </form>
+  
+</div>

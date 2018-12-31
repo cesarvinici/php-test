@@ -1,0 +1,11 @@
+<h1>Product List</h1>
+<ol class="list-unstyled row" >
+    <li class=" col-md-4" *ngFor="let item of products.products">
+            <figure class="figure"  >
+                    <img src="http://cinq.test/{{item.Image}}" alt="{{item.Name}}" class="img-thumbnail">
+                    <figcaption class="figcaption">{{item.Name}} - R$ {{item.Price}} <br> <a href="retailers/{{item.retailer.id}}">{{item.retailer.Name}}</a></figcaption>
+                    <a class="btn btn-primary" href="product/{{item.id}}" >Details</a>
+                </figure>
+    </li>
+    
+</ol>

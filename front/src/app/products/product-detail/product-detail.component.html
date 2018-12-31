@@ -1,0 +1,21 @@
+<h1 class="text-center mb-5">Details</h1>
+
+
+<div class="row">
+  <div class="col-6">
+      <img src="http://cinq.test/{{product.product.Image}}" alt="{{product.product.Name}}" class="img-thumbnail">
+  </div>
+  
+  <div class="col-6">
+    <h3>{{product.product.Name}}</h3>
+    <h4>R$ {{product.product.Price}}</h4>
+    <p><strong>Description:</strong><br>
+    {{product.product.Description}}
+  </p>
+  <p>
+    <strong>Retailer: </strong>
+    <a href="retailers/{{product.product.retailer.id}}">{{product.product.retailer.Name}}</a>
+  </p>
+
+  </div>
+</div>
