@@ -5,13 +5,15 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { RetailerListComponent } from './retailers/retailer-list/retailer-list.component';
 import { RetailerDetailComponent } from './retailers/retailer-detail/retailer-detail.component';
 import { RetailerFormComponent } from './retailers/retailer-form/retailer-form.component';
+import { ProductsFormComponent } from './products/products-form/products-form.component';
 
 const routes: Routes = [
   { path: "", component: ProductListComponent },
-  { path: "product/:productId", component: ProductDetailComponent },
+  { path: "products/:productId", component: ProductDetailComponent },
   { path: "retailers", component: RetailerListComponent },
   { path: "retailers/:retailerId", component: RetailerDetailComponent },
-  { path: "retailer/create", component: RetailerFormComponent }
+  { path: "retailer/create", component: RetailerFormComponent },
+  { path: "product/create", component: ProductsFormComponent}
 ];
 
 @NgModule({

@@ -8,7 +8,6 @@ Para configurar o laravel é necessário ter PHP > 7, composer e um banco MySql.
         - composer install
         - php artisan key:generate - para gerar a chave de securança do artisan
         - php artisan migrate - para criar as tabelas do banco de dados
-        - php artisan db:seed - para copular a tabela com dados fake;
 Se tudo ocorreu de forma correta já é possível rodar o sistema.
 caso você não esteja rodando o sistema em uma VM homestead é possível rodar através do comando 
 "php artisan serve" isso irá levantar um servidor e o projeto estará acessível.
@@ -22,3 +21,28 @@ Também é possível rodar testes unitários através do comando phpunit --testd
 # testes estão na pasta tests/unit
 # models estão em app/
 # arquivo de rotas está em routes/api.php 
+
+
+O front-end foi realizado utilizando o framework Angular
+
+Para rodar é necessário NodeJs instalado na maquina.
+
+Caso angular não esteja instalado na maquina você poderá instalar utilizando o comando 
+
+"npm install -g @angular/cli"
+
+Após o procedimento acima você pode entrar na pasta front e rodar o comando "npm install", este comando irá instalar as dependecias do angular.
+
+Se tudo ocorreu sem erros é para o angular funcionar, porém é necessário alterar os endereços da API no angular para o endereço em que a API está rodando em seu computador, são os locais:
+        - product.service.ts - Linha 09
+        - retailer.service.ts - Linha 09
+        - product-detail.component.html - Linha 06
+        - product-list.component.html - Linha 05
+        - retailer-detail.component.html - Linha 07/18
+
+Com as mudanças acimas as rotas de cadastro e mostrar imagens devem funcionar.
+
+
+ATENÇÃO - CASO VOCÊ JA TENHA RODADO ESTE PROJETO ANTES, NECESSÁRIO ATUALIZAR O COMPOSER POIS FOI INSTALADO UMA NOVA BIBLIOTECA, TAMBÉM SERIA INTERESSANTE ZERAR A BASE DE DADOS E RODAR O PHP ARTISAN MIGRATE NOVAMENTE PARA QUE ALGUMAS ATUALIZAÇÕES SEJAM ATUALIZADAS.
+
+Qualquer dúvida estou a disposição.

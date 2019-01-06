@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Retailer } from './retailer';
+import { Observable } from 'rxjs';
 
 
 
@@ -14,14 +15,20 @@ export class RetailerService{
 
     getRetailers()
     {
-        return this.http.get<Retailer[]>(`${API}/retailers`);
+        return this.http.get<Retailer[]>(`${API}/retailers`).pipe(map(response => response));
     }
-
 
     getRetailerDetail(retailerId: number)
     {
-        return this.http.get<Retailer>(`${API}/retailers/${retailerId}`).pipe(map(responce=>responce));
+        return this.http.get<Retailer>(`${API}/retailers/${retailerId}`).pipe(map(response=>response));
     }
 
+    saveRetailer(retailer){
+        const headers = new HttpHeaders();
+        headers.append('Content-Type', 'multipart/form-data');
+        headers.append('Accept', 'application/json');
+       return this.http.post(`${API}/retailers`, retailer, {headers: headers}).pipe(map(res => res));
+      
+    }
 
 }

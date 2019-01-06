@@ -2,18 +2,21 @@
 
 <div class="row ">
   
-      <form class="form form-group"  method="POST"  enctype="multipart/form-data">
+      <form [formGroup]="formulario" class="form form-group"  (ngSubmit)="saveRetailer()" enctype="multipart/form-data">
         <div class="col-6">
           <label for="Name" class="font-weight-bold">Name</label>
-          <input type="text" id="Name" class="form-control" name="Name">
+          <input type="text" formControlName="Name" class="form-control">
           <label for="WebSite" class="font-weight-bold">WebSite</label>
-          <input type="url" id="WebSite" class="form-control" name="WebSite">
+          <input type="url" id="WebSite" class="form-control" formControlName="WebSite">
           <label for="Description" class="font-weight-bold">Description</label>
-          <textarea name="Description" class="form-control" id="Description" cols="100" rows="5"></textarea>
+          <textarea formControlName="Description" class="form-control" id="Description" cols="100" rows="5"></textarea>
           <label for="Logo" class="font-weight-bold">Logo</label>
-          <input type="file" id="Logo" class="form-control" name="Logo">
+          <input type="file" id="Logo" class="form-control" formControlName="Logo" (change)="onFileChange($event)" >
         </div>
-        <button class="btn btn-success mt-3 btn-md" (click)="saveRetailer()">SAVE</button>
+        <ul class="alert alert-{{class}} mt-3 col-6" [hidden]="HideMsg">
+          <li>{{message}}</li>
+        </ul>
+        <button type="submit" class="btn btn-success mt-3 btn-md">SAVE</button>
         </form>
   
 </div>

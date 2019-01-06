@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import { Product } from './product';
@@ -17,10 +17,31 @@ export class ProductService{
     }
 
 
+    saveProduct(product)
+    {
+        const headers = new HttpHeaders();
+        headers.append('Content-Type', 'multipart/form-data');
+        headers.append('Accept', 'application/json');
+       return this.http.post(`${API}/products`, product, {headers: headers}).pipe(map(res => res));
+
+    }
+
+
+
     getDetail(productId: number)
     {
         return this.http.get<Product>(`${API}/products/${productId}`).pipe(map(responce=>responce));
     }
+
+
+    sendEmail(product)
+    {
+        const headers = new HttpHeaders();
+        headers.append('Content-Type', 'multipart/form-data');
+        headers.append('Accept', 'application/json');
+       return this.http.post(`${API}/products/email`, product, {headers: headers}).pipe(map(res => res));
+    }
+
 
 
 }

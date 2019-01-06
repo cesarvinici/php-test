@@ -1,0 +1,26 @@
+<h1 class="text-center">Create Product</h1>
+
+<div class="row ">
+  
+      <form [formGroup]="formulario" class="form form-group"  (ngSubmit)="saveProduct()" enctype="multipart/form-data">
+        <div class="col-6">
+          <label for="Name" class="font-weight-bold">Name</label>
+          <input type="text" formControlName="Name" class="form-control">
+          <label for="Price" class="font-weight-bold">Price</label>
+          <input type="text" id="Price" class="form-control" formControlName="Price">
+          <label for="Description" class="font-weight-bold">Description</label>
+          <textarea formControlName="Description" class="form-control" id="Description" cols="100" rows="5"></textarea>
+          <label for="retailer">Retailer</label>
+          <select class="form-control" formControlName="retailer_id">
+            <option *ngFor="let retailer of retailers" value="{{retailer.id}}">{{retailer.Name}}</option>
+          </select>
+          <label for="Image" class="font-weight-bold">Image</label>
+          <input type="file" id="Image" class="form-control" formControlName="Image" (change)="onFileChange($event)" >
+        </div>
+        <ul class="alert alert-{{class}} mt-3 col-6" [hidden]="HideMsg">
+          <li>{{message}}</li>
+        </ul>
+        <button type="submit" class="btn btn-success mt-3 btn-md">SAVE</button>
+        </form>
+  
+</div>

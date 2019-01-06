@@ -9,6 +9,7 @@ class RetailerController extends Controller
 {
 
     protected $data;
+    
     /**
      * Display a listing of the resource.
      *
@@ -40,11 +41,23 @@ class RetailerController extends Controller
     {
         
         try{
-           Retailer::create($request->all());
+
+           $retailer = Retailer::create($request->except("Logo"));
+
+           if($request->hasFile('Logo'))
+           {
+               $imagem = $request->file('Logo');
+               $nomearquivo  = "images/".$retailer->id.".". $imagem->getClientOriginalExtension();
+               $request->file('Logo')->move(public_path('/images'), $nomearquivo);
+               $retailer->Logo = $nomearquivo;  
+               $retailer->save();
+           }
+
            return response()->json(['message' => 'Retailer added.', 'class' => 'success'], 200);
         }
         catch (\Exception $e){
-            return response()->json(['message' => 'Oops, something went wrong. Try again later.', 'class' => 'danger'], 400);
+
+            return response()->json(['message' => 'Oops, something went wrong. Try again later. '.$e, 'class' => 'danger'], 400);
         }
     }
 

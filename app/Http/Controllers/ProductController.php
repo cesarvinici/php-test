@@ -38,13 +38,22 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         try
-        {           
-            Product::create($request->all());
+        {
+            $product = Product::create($request->except("Image"));
+            if($request->hasFile('Image')) 
+            {
+                $imagem = $request->file('Image');
+                $nomearquivo  = "images/products/".$product->id.".". $imagem->getClientOriginalExtension();
+                $request->file('Image')->move(public_path('/images/products'), $nomearquivo);
+                $product->Image = $nomearquivo;  
+                $product->save();           
+            }          
+                
             return response()->json(['message' => 'Product successfully added!', 'class' => 'success'], 200);
         }
         catch(\Exception $e)
         {
-            return response()->json(['message' => 'Oops, something went wrong. Try again!'. $e->getMessage()], 404);
+            return response()->json(['message' => 'Oops, something went wrong. Try again!'. $e], 404);
         }
     }
 
@@ -97,4 +106,12 @@ class ProductController extends Controller
     {
         //
     }
+
+
+    public function sendEmail(Request $request)
+    {
+        return response()->json(['message' => 'ok']);
+    }
+
+
 }

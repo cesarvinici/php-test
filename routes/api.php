@@ -15,3 +15,4 @@ use Illuminate\Http\Request;
 
 Route::resource('retailers', 'RetailerController');
 Route::resource('products', 'ProductController');
+Route::post('products/email', 'ProductController@sendEmail');
