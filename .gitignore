@@ -1,8 +1,8 @@
 /node_modules
 /storage/*.key
 /vendor
-/public/images/products/*
-/public/images/retailers/*
+/public/images/products/*.jpg
+/public/images/retailers/*.jpg
 .env
 .phpunit.result.cache
 Homestead.json
