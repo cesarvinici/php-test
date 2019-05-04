@@ -25,10 +25,10 @@ export class RetailerFormComponent implements OnInit {
   
   ngOnInit() {
     this.formulario = new FormGroup({
-      Name: new FormControl(null),
-      WebSite: new FormControl(null),
-      Description: new FormControl(null),
-      Logo: new FormControl(null)
+      name: new FormControl(null),
+      site: new FormControl(null),
+      description: new FormControl(null),
+      logo: new FormControl(null)
       
 
     });
@@ -39,10 +39,10 @@ export class RetailerFormComponent implements OnInit {
     this.HideMsg = true;
     const form = this.formulario.value;
     const fd = new FormData();
-    fd.append('Name', form.Name);
-    fd.append('WebSite', form.WebSite);
-    fd.append("Description", form.Description);
-    fd.append('Logo', this.file)
+    fd.append('name', form.name);
+    fd.append('site', form.site);
+    fd.append("description", form.description);
+    fd.append('logo', this.file)
     this.retailerService.saveRetailer(fd).subscribe(
       data => {
         this.message = "Retailer added successfully";

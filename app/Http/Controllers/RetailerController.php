@@ -42,13 +42,13 @@ class RetailerController extends Controller
         
         try{
 
-           $retailer = Retailer::create($request->except("Logo"));
+           $retailer = Retailer::create($request->except("logo"));
 
-           if($request->hasFile('Logo'))
+           if($request->hasFile('logo'))
            {
-               $imagem = $request->file('Logo');
-               $nomearquivo  = "images/".$retailer->id.".". $imagem->getClientOriginalExtension();
-               $request->file('Logo')->move(public_path('/images'), $nomearquivo);
+               $imagem = $request->file('logo');
+               $nomearquivo  = $retailer->retailer_id.".". $imagem->getClientOriginalExtension();
+               $request->file('logo')->move(public_path('/images/retailers'), $nomearquivo);
                $retailer->Logo = $nomearquivo;  
                $retailer->save();
            }
@@ -70,8 +70,7 @@ class RetailerController extends Controller
     public function show($id)
     {
             $retailer = Retailer::with('products')->find($id);
-       
-            if(isset($retailer->id))
+            if(isset($retailer->retailer_id))
                 return response()->json(['retailer' => $retailer], 200);
         
             return response()->json(['message' => 'Retailer not found!'], 404);

@@ -14,7 +14,7 @@ class TurnImageNull extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('Image', 255)->nullable()->change();
+            $table->string('image', 255)->nullable()->change();
         });
     }
 

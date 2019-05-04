@@ -1,23 +1,23 @@
 <h1 class="text-center mb-3">Retailer Details</h1>
 
-<h2>{{retailer.retailer.Name}}</h2>
+<h2>{{retailer.retailer.name}}</h2>
 
 <div class="row">
   <div class="col-6">
-      <img src="http://cinq.test/{{retailer.retailer.Logo}}" class="img-thumbnail">
+      <img src="http://localhost:8000/images/retailers/{{retailer.retailer.logo}}" class="img-thumbnail">
   </div>
   <div class="col-6">
-    <p>{{retailer.retailer.Description}}</p>
-    <p><a href="{{retailer.retailer.WebSite}}">{{retailer.retailer.WebSite}}</a></p>
+    <p>{{retailer.retailer.description}}</p>
+    <p><a href="{{retailer.retailer.site}}">{{retailer.retailer.site}}</a></p>
   </div>
 </div>
 <h2 class="text-center mt-5">Products</h2>
 <div class="row">
   <div class="col-md-4" *ngFor="let product of retailer.retailer.products">
       <figure class="figure"  >
-          <img src="http://cinq.test/{{product.Image}}" alt="{{product.Name}}" class="img-thumbnail">
-          <figcaption class="figcaption">{{product.Name}} - R$ {{product.Price}}</figcaption>
-          <a class="btn btn-primary" href="product/{{product.id}}" >Details</a>
+          <img src="http://localhost:8000/images/products/{{product.image}}" alt="{{product.name}}" class="img-thumbnail">
+          <figcaption class="figcaption">{{product.name}} - R$ {{product.price}}</figcaption>
+          <a class="btn btn-primary" href="products/{{product.product_id}}" >Details</a>
       </figure>
   </div>
 </div>

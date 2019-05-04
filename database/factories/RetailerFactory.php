@@ -4,9 +4,9 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Retailer::class, function (Faker $faker) {
     return [
-        'Name' => $this->faker->company,
-        'Logo' => $this->faker->image('images',400,300),
-        'Description' => $this->faker->text($maxNbChars = 200),
-        'WebSite' => $this->faker->url 
+        'name' => $this->faker->company,
+        'logo' => $this->faker->image('public\images\retailers',400,300, null, false),
+        'description' => $this->faker->text($maxNbChars = 200),
+        'site' => $this->faker->url 
     ];
 });

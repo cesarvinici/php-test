@@ -34,7 +34,7 @@ export class ProductDetailComponent implements OnInit {
       const form = this.formulario.value;
       const fd = new FormData();
       fd.append('Email', form.Email);
-      fd.append('ProductId', this.product.id);
+      fd.append('ProductId', this.activatedRoute.snapshot.params.productId);
 
       this.productService.sendEmail(fd).subscribe(data => alert("email sent successfully!"));
       

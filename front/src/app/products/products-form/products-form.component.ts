@@ -24,18 +24,16 @@ export class ProductsFormComponent implements OnInit {
 
     this.getRetailers();
     this.HideMsg = true;
-
-
    }
 
   ngOnInit() {
 
     this.formulario = new FormGroup({
-       Name: new FormControl(null),
-       Price: new FormControl(null),
-       Image: new FormControl(null),
+       name: new FormControl(null),
+       price: new FormControl(null),
+       image: new FormControl(null),
        retailer_id: new FormControl(null),
-       Description: new FormControl(null),
+       description: new FormControl(null),
     });
    
     
@@ -46,11 +44,11 @@ export class ProductsFormComponent implements OnInit {
       this.HideMsg = true;
       const form = this.formulario.value;
       const fd = new FormData();
-      fd.append('Name', form.Name);
-      fd.append('Price', form.Price);
+      fd.append('name', form.name);
+      fd.append('price', form.price);
       fd.append('retailer_id', form.retailer_id);
-      fd.append("Description", form.Description);
-      fd.append('Image', this.file)
+      fd.append("description", form.description);
+      fd.append('image', this.file)
       this.productService.saveProduct(fd).subscribe(
         data => {
           this.message = "Product added successfully";

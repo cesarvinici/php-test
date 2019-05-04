@@ -1,8 +1,8 @@
 export interface Retailer
 {
-    id: number;
-    Name: string;
-    Logo: string;
-    Description: string;
-    WebSite: string;
+    retailer_id: number;
+    name: string;
+    logo: string;
+    description: string;
+    site: string;
 }

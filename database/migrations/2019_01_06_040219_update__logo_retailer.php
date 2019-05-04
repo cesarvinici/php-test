@@ -14,7 +14,7 @@ class UpdateLogoRetailer extends Migration
     public function up()
     {
         Schema::table('retailers', function (Blueprint $table) {
-            $table->string('Logo', 255)->nullable()->change();
+            $table->string('logo', 255)->nullable()->change();
         });
     }
 

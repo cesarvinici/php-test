@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Retailer extends Model
 {
-    // Informa ao laravel que dentro de um array estes campos serão adicionados diretamente à base de dados.
-    protected $fillable = ['Name', 'Logo', 'Description', 'WebSite'];
+    protected $primaryKey = 'retailer_id';
+
+    //fields to mass assignment
+    protected $fillable = ['name', 'logo', 'description', 'site'];
 
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class, 'retailer_id', 'retailer_id');
     }
 
 

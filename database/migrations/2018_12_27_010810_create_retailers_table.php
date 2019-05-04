@@ -14,11 +14,11 @@ class CreateRetailersTable extends Migration
     public function up()
     {
         Schema::create('retailers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('Name', 255);
-            $table->string('Logo', 255);
-            $table->text('Description');
-            $table->string('WebSite');
+            $table->increments('retailer_id');
+            $table->string('name', 255);
+            $table->string('logo', 255);
+            $table->text('description');
+            $table->string('site');
             $table->timestamps();
         });
     }

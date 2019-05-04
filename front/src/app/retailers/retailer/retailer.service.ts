@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 
 
-const API = 'http://cinq.test/api';
+const API = 'http://localhost:8000/api';
 
 @Injectable({providedIn: 'root'})
 export class RetailerService{

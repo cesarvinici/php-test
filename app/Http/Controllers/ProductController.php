@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-       $products = Product::with('retailer')->get();
+       $products = Product::with('retailer')->orderBy('product_id', 'desc')->get();
        return response()->json(['products' => $products], 200);
 
     }
@@ -39,12 +39,12 @@ class ProductController extends Controller
     {
         try
         {
-            $product = Product::create($request->except("Image"));
-            if($request->hasFile('Image')) 
+            $product = Product::create($request->except("image"));
+            if($request->hasFile('image')) 
             {
-                $imagem = $request->file('Image');
-                $nomearquivo  = "images/products/".$product->id.".". $imagem->getClientOriginalExtension();
-                $request->file('Image')->move(public_path('/images/products'), $nomearquivo);
+                $imagem = $request->file('image');
+                $nomearquivo  = $product->product_id.".". $imagem->getClientOriginalExtension();
+                $request->file('image')->move(public_path('/images/products'), $nomearquivo);
                 $product->Image = $nomearquivo;  
                 $product->save();           
             }          

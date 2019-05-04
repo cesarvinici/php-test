@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { Product } from './product';
 
-const API = 'http://cinq.test/api';
+const API = 'http://localhost:8000/api';
 
 @Injectable({providedIn: 'root'})
 export class ProductService{

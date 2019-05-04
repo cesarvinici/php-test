@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   return public_path().'\images\products\9f4631d6ae3c8a9b0f938a27c22e5507.jpg';
 });
