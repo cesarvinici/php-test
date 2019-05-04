@@ -2,7 +2,7 @@
 <ol class="list-unstyled row" >
     <li class=" col-md-4" *ngFor="let item of products.products">
             <figure class="figure"  >
-                    <img src="http://localhost:8000/images/products/{{item.image}}" alt="{{item.name}}" class="img-thumbnail">
+                    <img src="{{apiUrl}}/images/products/{{item.image}}" alt="{{item.name}}" class="img-thumbnail">
                     <figcaption class="figcaption">{{item.name}} - R$ {{item.price}} <br> <a href="retailers/{{item.retailer.retailer_id}}">{{item.retailer.name}}</a></figcaption>
                     <a class="btn btn-primary" href="products/{{item.product_id}}" >Details</a>
                 </figure>

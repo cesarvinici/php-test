@@ -3,10 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Retailer } from './retailer';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 
 
-const API = 'http://localhost:8000/api';
+const API = environment.apiUrl+'/api';
 
 @Injectable({providedIn: 'root'})
 export class RetailerService{

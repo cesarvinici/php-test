@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-product-list',
@@ -11,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
+  apiUrl = environment.apiUrl;
 
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) { }
 

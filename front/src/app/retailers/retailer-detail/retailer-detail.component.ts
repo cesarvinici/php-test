@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Retailer } from '../retailer/retailer';
 import { RetailerService } from '../retailer/retailer.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-retailer-detail',
@@ -11,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class RetailerDetailComponent implements OnInit {
 
   retailer: Retailer;
+  apiUrl = environment.apiUrl;
   
   constructor(private retailerService: RetailerService,  private activatedRoute: ActivatedRoute) { }
 

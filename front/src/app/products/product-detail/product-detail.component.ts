@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../product/product.service';
 import { Product } from '../product/product';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -14,8 +15,8 @@ export class ProductDetailComponent implements OnInit {
 
   product: Product;
   formulario: FormGroup;
-
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) { }
+  apiUrl = environment.apiUrl;
+  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     const productId = this.activatedRoute.snapshot.params.productId;

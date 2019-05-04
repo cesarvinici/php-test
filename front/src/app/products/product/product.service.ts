@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
+import { environment } from '../../../environments/environment';
 import { Product } from './product';
 
-const API = 'http://localhost:8000/api';
+const API = environment.apiUrl+'/api';
 
 @Injectable({providedIn: 'root'})
 export class ProductService{

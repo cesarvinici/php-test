@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="col-6">
-      <img src="http://localhost:8000/images/retailers/{{retailer.retailer.logo}}" class="img-thumbnail">
+      <img src="{{apiUrl}}/images/retailers/{{retailer.retailer.logo}}" class="img-thumbnail">
   </div>
   <div class="col-6">
     <p>{{retailer.retailer.description}}</p>
@@ -15,7 +15,7 @@
 <div class="row">
   <div class="col-md-4" *ngFor="let product of retailer.retailer.products">
       <figure class="figure"  >
-          <img src="http://localhost:8000/images/products/{{product.image}}" alt="{{product.name}}" class="img-thumbnail">
+          <img src="{{apiUrl}}/images/products/{{product.image}}" alt="{{product.name}}" class="img-thumbnail">
           <figcaption class="figcaption">{{product.name}} - R$ {{product.price}}</figcaption>
           <a class="btn btn-primary" href="products/{{product.product_id}}" >Details</a>
       </figure>
