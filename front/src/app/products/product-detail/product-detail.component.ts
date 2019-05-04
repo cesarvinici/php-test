@@ -20,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     const productId = this.activatedRoute.snapshot.params.productId;
-    this.productService.getDetail(productId).subscribe(products => {this.product = products.product, console.log(products)});
+    this.productService.getDetail(productId).subscribe(products => {this.product = products['product'], console.log(products)});
 
     this.formulario = new FormGroup({
       Email: new FormControl(null),

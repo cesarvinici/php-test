@@ -66,7 +66,7 @@ export class ProductsFormComponent implements OnInit {
 
   getRetailers()
   {
-    this.retailerService.getRetailers().subscribe(retailers => this.retailers = retailers.retailers, error => error);
+    this.retailerService.getRetailers().subscribe(retailers => this.retailers = retailers['retailers'], error => error);
   }
 
 
