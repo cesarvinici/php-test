@@ -5,7 +5,7 @@
       <form [formGroup]="formulario" class="form form-group"  (ngSubmit)="saveProduct()" enctype="multipart/form-data">
         <div class="col-6">
           <label for="Name" class="font-weight-bold">Name</label>
-          <input type="text" formControlName="name" class="form-control">
+          <input type="text" formControlName="name" class="form-control" required minlength="4">
           <label for="Price" class="font-weight-bold">Price</label>
           <input type="text" id="Price" class="form-control" formControlName="price">
           <label for="Description" class="font-weight-bold">Description</label>
@@ -18,7 +18,7 @@
           <input type="file" id="Image" class="form-control" formControlName="image" (change)="onFileChange($event)" >
         </div>
         <ul class="alert alert-{{class}} mt-3 col-6" [hidden]="HideMsg">
-          <li>{{message}}</li>
+          <li *ngFor="let msg of message">{{msg}}</li>
         </ul>
         <button type="submit" class="btn btn-success mt-3 btn-md">SAVE</button>
         </form>

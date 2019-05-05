@@ -2,7 +2,9 @@
 /storage/*.key
 /vendor
 /public/images/products/*.jpg
+/public/images/products/*.png
 /public/images/retailers/*.jpg
+/public/images/retailers/*.png
 .env
 .phpunit.result.cache
 Homestead.json
